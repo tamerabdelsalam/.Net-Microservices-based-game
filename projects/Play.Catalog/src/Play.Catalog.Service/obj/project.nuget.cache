@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "776mnBTj+7kZXZIegnNtlFqNtw6/n8G/GtgShsYerT4Xz+M8018hv2SAPnEDclPKA0gS8Vtv+FXQ9HKm/ppKZg==",
+  "success": true,
+  "projectFilePath": "D:\\Materials\\DotNet\\DotNetMicroservices\\Play-Economy-System\\Repo\\.Net-Microservices-based-game\\projects\\Play.Catalog\\src\\Play.Catalog.Service\\Play.Catalog.Service.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\tamer.abdelsalam\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\tamer.abdelsalam\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\tamer.abdelsalam\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "C:\\Users\\tamer.abdelsalam\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "C:\\Users\\tamer.abdelsalam\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "C:\\Users\\tamer.abdelsalam\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}
