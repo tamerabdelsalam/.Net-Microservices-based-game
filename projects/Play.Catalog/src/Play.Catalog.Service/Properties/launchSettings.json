@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "https": {
+    "Play.Catalog.Service": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
