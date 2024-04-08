@@ -23,7 +23,12 @@ public class ItemsController : ControllerBase
 
     // GET /items/{id}
     [HttpGet("{id}")]
-    public ItemDto GetById(Guid id) => items.SingleOrDefault(item => item.Id == id);
+    public ActionResult<ItemDto> GetById(Guid id)
+    {
+        var item = items.SingleOrDefault(item => item.Id == id);
+
+        return item is not null ? item : NotFound();
+    }
 
     // POST /items
     [HttpPost]
@@ -40,6 +45,11 @@ public class ItemsController : ControllerBase
     public IActionResult Put(Guid id, UpdateItemDto dto)
     {
         var existingItem = items.SingleOrDefault(existingItem => existingItem.Id == id);
+
+        if (existingItem is null)
+        {
+            return NotFound();
+        }
 
         var updatedItem = existingItem with
         {
@@ -60,6 +70,11 @@ public class ItemsController : ControllerBase
     public IActionResult Delete(Guid id)
     {
         var index = items.FindIndex(existingItem => existingItem.Id == id);
+
+        if (index < 0)
+        {
+            return NotFound();
+        }
 
         items.RemoveAt(index);
 
