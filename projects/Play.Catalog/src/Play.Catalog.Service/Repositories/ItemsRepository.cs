@@ -10,7 +10,6 @@ public class ItemsRepository
 {
     private const string collectionName = "items";
     private readonly IMongoCollection<Item> dbCollection;
-
     private readonly FilterDefinitionBuilder<Item> filterBuilder = Builders<Item>.Filter;
 
     public ItemsRepository()
