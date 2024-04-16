@@ -32,7 +32,7 @@ public class ItemsController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<ItemDto>> GetByIdAsync(Guid id)
     {
-        var item = (await itemsRepository.GetAsync(id)).AsDto();
+        var item = (await itemsRepository.GetAsync(id))?.AsDto();
 
         return item is not null ? item : NotFound();
     }
