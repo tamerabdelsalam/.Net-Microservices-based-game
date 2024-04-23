@@ -10,3 +10,4 @@ D:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservi
 D:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservices-based-game\projects\Play.Common\src\Play.Common\obj\Debug\net8.0\refint\Play.Common.dll
 D:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservices-based-game\projects\Play.Common\src\Play.Common\obj\Debug\net8.0\Play.Common.pdb
 D:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservices-based-game\projects\Play.Common\src\Play.Common\obj\Debug\net8.0\ref\Play.Common.dll
+D:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservices-based-game\projects\Play.Common\src\Play.Common\obj\Debug\net8.0\Play.Common.csproj.AssemblyReference.cache
