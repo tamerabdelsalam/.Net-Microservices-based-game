@@ -1,0 +1,20 @@
+# docker run -d --rm --name mongo-container -p 27017:27017 -v mongodbdata:/data/db mongo
+
+version: '3.8' # Docker-compose version
+
+services:
+  # Services to run
+  mongo:
+    # Service name
+    image: mongo # Official image from Docker Hub
+    container_name: mongo-container
+    ports:
+      # Ports to expose
+      - "27017:27017" # Host:Container external:internal port
+    volumes:
+      # Volumes to persist data
+      - mongodbdata:/data/db # Persist data in mongodbdata volume created below
+
+volumes:
+  # Volumes to persist data
+  mongodbdata: # Volume name
