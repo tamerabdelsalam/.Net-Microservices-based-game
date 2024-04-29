@@ -1117,6 +1117,7 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
+        "D:\\Materials\\DotNet\\DotNetMicroservices\\Play-Economy-System\\Repo\\.Net-Microservices-based-game\\projects\\packages": {},
         "D:\\Materials\\DotNet\\DotNetMicroservices\\Training\\Game-With-Micros\\Packages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
