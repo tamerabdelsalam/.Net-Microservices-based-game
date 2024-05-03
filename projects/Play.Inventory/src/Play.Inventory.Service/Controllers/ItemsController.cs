@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MassTransit.Initializers;
 using System.Collections.Generic;
 using System.Linq;
+using Play.Inventory.Service.Clients;
 
 namespace Play.Inventory.Service.Controllers;
 
@@ -14,9 +15,12 @@ namespace Play.Inventory.Service.Controllers;
 public class ItemsController : ControllerBase
 {
     private readonly IRepository<InventoryItem> _itemsRepository;
-    public ItemsController(IRepository<InventoryItem> itemsRepository)
+    private readonly CatalogClient _catalogClient;
+
+    public ItemsController(IRepository<InventoryItem> itemsRepository, CatalogClient catalogClient)
     {
         _itemsRepository = itemsRepository;
+        _catalogClient = catalogClient;
     }
 
     [HttpGet("{userId}")]
@@ -27,9 +31,18 @@ public class ItemsController : ControllerBase
             return BadRequest();
         }
 
-        var userItems = (await _itemsRepository.GetAllAsync(item => item.UserId == userId)).Select(item => item.AsDto());
+        var catalogItems = await _catalogClient.GetCatalogItemsAsync();
 
-        return Ok(userItems);
+        var userInventoryItemEntities = await _itemsRepository.GetAllAsync(item => item.UserId == userId);
+
+        var userInventoryItemDtos = userInventoryItemEntities.Select(inventoryItem =>
+        {
+            var catalogItem = catalogItems.Single(catalogItem => catalogItem.Id == inventoryItem.CatalogItemId);
+
+            return inventoryItem.AsDto(catalogItem.Name, catalogItem.Description);
+        });
+
+        return Ok(userInventoryItemDtos);
     }
 
     [HttpPost]

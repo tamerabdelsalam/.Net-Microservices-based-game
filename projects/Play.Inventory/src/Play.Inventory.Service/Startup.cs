@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,6 +23,11 @@ namespace Play.Inventory.Service
         {
             services.AddMongo()
                     .AddMongoRepository<Entities.InventoryItem>("inventoryItems");
+
+            services.AddHttpClient<Clients.CatalogClient>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:5002");
+            });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
