@@ -22,7 +22,7 @@ namespace Play.Inventory.Service
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMongo()
-                    .AddMongoRepository<Entities.InventoryItem>("inventoryItems");
+                    .AddMongoRepository<Entities.InventoryItem>("inventoryItems"); 
 
             services.AddHttpClient<Clients.CatalogClient>(client =>
             {

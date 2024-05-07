@@ -16,6 +16,7 @@ public class ItemsController : ControllerBase
 {
 
     private readonly IRepository<Item> itemsRepository;
+    private static int requestsCount = 0;
 
     public ItemsController(IRepository<Item> itemsRepository)
     {
@@ -24,11 +25,29 @@ public class ItemsController : ControllerBase
 
     // GET /items
     [HttpGet]
-    public async Task<IEnumerable<ItemDto>> GetAsync()
+    public async Task<ActionResult<IEnumerable<ItemDto>>> GetAsync()
     {
+        requestsCount++;
+
+        Console.WriteLine($"Requests count: {requestsCount} started at {DateTimeOffset.UtcNow}");
+
+        if (requestsCount <= 2)
+        {
+            Console.WriteLine($"Requests count: {requestsCount} is delaying");
+            await Task.Delay(TimeSpan.FromSeconds(10));
+        }
+
+        if (requestsCount <= 4)
+        {
+            Console.WriteLine($"Requests count: {requestsCount} is throwing an exception");
+            return StatusCode(500);
+        }
+
         var items = (await itemsRepository.GetAllAsync()).Select(item => item.AsDto());
 
-        return items;
+        Console.WriteLine($"Requests count: {requestsCount} returning Status code 200, OK");
+
+        return Ok(items);
     }
 
     // GET /items/{id}
