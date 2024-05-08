@@ -1,11 +1,14 @@
 using System;
+using System.Net.Http;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Play.Common.MongoDB;
+using Polly;
 
 namespace Play.Inventory.Service
 {
@@ -22,12 +25,13 @@ namespace Play.Inventory.Service
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMongo()
-                    .AddMongoRepository<Entities.InventoryItem>("inventoryItems"); 
+                    .AddMongoRepository<Entities.InventoryItem>("inventoryItems");
 
             services.AddHttpClient<Clients.CatalogClient>(client =>
             {
                 client.BaseAddress = new Uri("https://localhost:5002");
-            });
+            })
+            .AddPolicyHandler(Policy.TimeoutAsync<HttpResponseMessage>(1));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

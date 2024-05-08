@@ -54,3 +54,6 @@ D:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservi
 D:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservices-based-game\projects\Play.Inventory\src\Play.Inventory.Service\obj\Debug\net8.0\Play.Inventory.Service.pdb
 D:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservices-based-game\projects\Play.Inventory\src\Play.Inventory.Service\obj\Debug\net8.0\Play.Inventory.Service.genruntimeconfig.cache
 D:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservices-based-game\projects\Play.Inventory\src\Play.Inventory.Service\obj\Debug\net8.0\ref\Play.Inventory.Service.dll
+D:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservices-based-game\projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net8.0\Microsoft.Extensions.Http.Polly.dll
+D:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservices-based-game\projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net8.0\Polly.dll
+D:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservices-based-game\projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net8.0\Polly.Extensions.Http.dll
