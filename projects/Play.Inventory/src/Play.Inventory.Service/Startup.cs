@@ -1,14 +1,17 @@
 using System;
 using System.Net.Http;
+using DnsClient.Internal;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Play.Common.MongoDB;
 using Polly;
+using Polly.Timeout;
 
 namespace Play.Inventory.Service
 {
@@ -27,11 +30,25 @@ namespace Play.Inventory.Service
             services.AddMongo()
                     .AddMongoRepository<Entities.InventoryItem>("inventoryItems");
 
+            Random randNum = new();
+
             services.AddHttpClient<Clients.CatalogClient>(client =>
             {
                 client.BaseAddress = new Uri("https://localhost:5002");
             })
-            .AddPolicyHandler(Policy.TimeoutAsync<HttpResponseMessage>(1));
+            .AddTransientHttpErrorPolicy(builder => builder.Or<TimeoutRejectedException>()
+                                                           .WaitAndRetryAsync(
+                                                            5,
+                                                            retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt))
+                                                                          + TimeSpan.FromMilliseconds(randNum.Next(0, 1000))
+            //  The following code is used for logging the retry attempts, for debugging purposes only                                                             
+            , onRetry: (outcome, timespan, retryAttempt) =>
+            {
+                var serviceProvider = services.BuildServiceProvider();
+                serviceProvider.GetService<ILogger<Clients.CatalogClient>>()?.LogWarning($"Delaying for {timespan.TotalSeconds} seconds, then making retry {retryAttempt}");
+            }
+            ))
+            .AddPolicyHandler(Policy.TimeoutAsync<HttpResponseMessage>(1)); // Timeout after 1 second
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
