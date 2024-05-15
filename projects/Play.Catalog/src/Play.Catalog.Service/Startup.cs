@@ -1,3 +1,5 @@
+using MassTransit.Definition;
+using MassTransit.MultiBus;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -7,6 +9,7 @@ using Microsoft.OpenApi.Models;
 using Play.Catalog.Service.Entities;
 using Play.Common.MongoDB;
 using Play.Common.Settings;
+using MassTransit;
 
 namespace Play.Catalog.Service
 {
@@ -28,6 +31,16 @@ namespace Play.Catalog.Service
 
             services.AddMongo()
                     .AddMongoRepository<Item>("items");
+
+            services.AddMassTransit(mt =>
+            {
+                mt.UsingRabbitMq((context, configurator) =>
+                {
+                    var rabbitMQSettings= Configuration.GetSection(nameof(RabbitMQSettings)).Get<RabbitMQSettings>();
+                    configurator.Host(rabbitMQSettings.Host);
+                    configurator.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter(serviceSettings.ServiceName, false));
+                });
+            });
 
             services.AddControllers((options) => options.SuppressAsyncSuffixInActionNames = false);
             services.AddSwaggerGen(c =>
