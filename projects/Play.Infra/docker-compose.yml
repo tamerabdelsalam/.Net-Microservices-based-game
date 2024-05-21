@@ -15,6 +15,20 @@ services:
       # Volumes to persist data
       - mongodbdata:/data/db # Persist data in mongodbdata volume created below
 
+  rabbitmq:
+    # Service name
+    image: rabbitmq:management
+    container_name: rabbitmq-container
+    ports:
+      # Ports to expose
+      - "5672:5672" # Host:Container external:internal ports to communicate to RabbitMQ
+      - "15672:15672" # Host:Container external:internal ports to go to portal of RabbitMQ
+    volumes:
+      # Volumes to persist data
+      - rabbitmqdata:/var/lib/rabbitmq # Persist data in rabbitmqdata volume created below
+    hostname: rabbitmq-container # Hostname of the container
+
 volumes:
   # Volumes to persist data
   mongodbdata: # Volume name
+  rabbitmqdata: # Volume name
