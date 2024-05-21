@@ -10,6 +10,7 @@ using Play.Catalog.Service.Entities;
 using Play.Common.MongoDB;
 using Play.Common.Settings;
 using MassTransit;
+using Play.Common.MassTransit;
 
 namespace Play.Catalog.Service
 {
@@ -30,17 +31,8 @@ namespace Play.Catalog.Service
             serviceSettings = Configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
 
             services.AddMongo()
-                    .AddMongoRepository<Item>("items");
-
-            services.AddMassTransit(mt =>
-            {
-                mt.UsingRabbitMq((context, configurator) =>
-                {
-                    var rabbitMQSettings= Configuration.GetSection(nameof(RabbitMQSettings)).Get<RabbitMQSettings>();
-                    configurator.Host(rabbitMQSettings.Host);
-                    configurator.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter(serviceSettings.ServiceName, false));
-                });
-            });
+                    .AddMongoRepository<Item>("items")
+                    .AddMassTransitWithRabbitMQ();
 
             services.AddControllers((options) => options.SuppressAsyncSuffixInActionNames = false);
             services.AddSwaggerGen(c =>
