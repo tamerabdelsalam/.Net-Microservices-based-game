@@ -30,3 +30,7 @@ dist/
 
 # Ignore all Thumbs.db files created by Windows
 Thumbs.db
+
+ Ignore all .cache files in all folders
+**/.cache/
+
