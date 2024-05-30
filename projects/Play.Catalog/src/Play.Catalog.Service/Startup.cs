@@ -1,5 +1,3 @@
-using MassTransit.Definition;
-using MassTransit.MultiBus;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -9,13 +7,13 @@ using Microsoft.OpenApi.Models;
 using Play.Catalog.Service.Entities;
 using Play.Common.MongoDB;
 using Play.Common.Settings;
-using MassTransit;
 using Play.Common.MassTransit;
 
 namespace Play.Catalog.Service
 {
     public class Startup
     {
+        private const string AllowedOriginSetting = "AllowedOrigin";
         private ServiceSettings serviceSettings;
 
         public Startup(IConfiguration configuration)
@@ -49,6 +47,13 @@ namespace Play.Catalog.Service
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Play.Catalog.Service v1"));
+                
+                app.UseCors(builder =>
+                {
+                    builder.WithOrigins(Configuration[AllowedOriginSetting])
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+                });
             }
 
             app.UseHttpsRedirection();
