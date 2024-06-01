@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MassTransit.Initializers;
 using System.Collections.Generic;
 using System.Linq;
+using MongoDB.Driver;
 
 namespace Play.Inventory.Service.Controllers;
 
@@ -22,7 +23,7 @@ public class ItemsController : ControllerBase
         _catalogItemsRepository = catalogItemsRepository;
     }
 
-    [HttpGet("{userId}")]
+    [HttpGet]
     public async Task<ActionResult<IEnumerable<InventoryItemDto>>> GetAsync(Guid userId)
     {
         if (userId == Guid.Empty)
@@ -32,7 +33,14 @@ public class ItemsController : ControllerBase
 
         var userInventoryItemEntities = await _inventoryItemsRepository.GetAllAsync(item => item.UserId == userId);
 
-        var catalogItemEntities = await _catalogItemsRepository.GetAllAsync(catalogItem => userInventoryItemEntities.Select(item => item.CatalogItemId).Contains(catalogItem.Id));
+        if (userInventoryItemEntities is null)
+        {
+            return Ok(new List<InventoryItemDto>());
+        }
+
+        var userRelatedInventoryItemsCategoryIds = userInventoryItemEntities.Select(inventoryItem => inventoryItem.CatalogItemId).Distinct().ToList();
+
+        var catalogItemEntities = await _catalogItemsRepository.GetAllAsync(catalogItem => userRelatedInventoryItemsCategoryIds.Contains(catalogItem.Id));
 
         var userInventoryItemDtos = userInventoryItemEntities.Select(inventoryItem =>
         {
