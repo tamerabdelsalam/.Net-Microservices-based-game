@@ -23,15 +23,13 @@ using Play.Identity.Service.Entities;
 namespace Play.Identity.Service.Areas.Identity.Pages.Account
 {
     public class RegisterModel : PageModel
-    {        
+    {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IUserStore<ApplicationUser> _userStore;
         private readonly IUserEmailStore<ApplicationUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
-
-        private const decimal InitialGil = 100;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
@@ -116,7 +114,6 @@ namespace Play.Identity.Service.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
-                user.Gil = InitialGil;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
