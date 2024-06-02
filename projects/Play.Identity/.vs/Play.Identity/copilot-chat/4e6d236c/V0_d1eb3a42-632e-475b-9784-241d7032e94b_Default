@@ -1,0 +1,193 @@
+…¨DateTime×ÿ	/0f\ªªThreadNameÀ°CopilotSessionId‚¤GuidÙ$d1eb3a42-632e-475b-9784-241d7032e94b¨ClientId¢IdÙ4Microsoft.VisualStudio.Conversations.Chat.HelpWindow§Request§Request•Ù$4837dfab-0484-48ef-b8f5-6b09fe31ab95Ù$8ae2416e-b2cf-4a90-abef-0e6109b6a68aš†¯ProviderMoniker‚¤NameÙ6Microsoft.VisualStudio.Copilot.DocumentContextProvider§Version£0.1¦Member¤file©CanReduceÃ©RequestIdÙ$4837dfab-0484-48ef-b8f5-6b09fe31ab95©Reference©#solution¥ValueÈ×dÙ‘Microsoft.VisualStudio.Copilot.DocumentContext, Microsoft.VisualStudio.Copilot, Version=0.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a…§ContentÚj
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
+using Play.Common.Settings;
+using Play.Identity.Service.Entities;¯OriginalContentÀªSelections¨FilePathÙšD:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservices-based-game\projects\Play.Identity\src\Play.Identity.Service\Startup.cs¨Language¢C#†¯ProviderMoniker‚¤NameÙ6Microsoft.VisualStudio.Copilot.DocumentContextProvider§Version£0.1¦Member¤file©CanReduceÃ©RequestIdÙ$4837dfab-0484-48ef-b8f5-6b09fe31ab95©Reference©#solution¥ValueÈjdÙ‘Microsoft.VisualStudio.Copilot.DocumentContext, Microsoft.VisualStudio.Copilot, Version=0.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a…§ContentÙş
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;¯OriginalContentÀªSelections¨FilePathÙšD:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservices-based-game\projects\Play.Identity\src\Play.Identity.Service\Program.cs¨Language¢C#†¯ProviderMoniker‚¤NameÙ6Microsoft.VisualStudio.Copilot.DocumentContextProvider§Version£0.1¦Member¤file©CanReduceÃ©RequestIdÙ$4837dfab-0484-48ef-b8f5-6b09fe31ab95©Reference©#solution¥ValueÈådÙ‘Microsoft.VisualStudio.Copilot.DocumentContext, Microsoft.VisualStudio.Copilot, Version=0.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a…§ContentÚS
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Text.Encodings.Web;
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.Logging;
+using Play.Identity.Service.Entities;¯OriginalContentÀªSelections¨FilePathÙ¿D:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservices-based-game\projects\Play.Identity\src\Play.Identity.Service\Areas\Identity\Pages\Account\Register.cshtml.cs¨Language¢C#†¯ProviderMoniker‚¤NameÙ6Microsoft.VisualStudio.Copilot.DocumentContextProvider§Version£0.1¦Member¤file©CanReduceÃ©RequestIdÙ$4837dfab-0484-48ef-b8f5-6b09fe31ab95©Reference©#solution¥ValueÈædÙ‘Microsoft.VisualStudio.Copilot.DocumentContext, Microsoft.VisualStudio.Copilot, Version=0.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a…§ContentÙi
+using System;
+using AspNetCore.Identity.MongoDbCore.Models;
+using MongoDbGenericRepository.Attributes;¯OriginalContentÀªSelections¨FilePathÙ«D:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservices-based-game\projects\Play.Identity\src\Play.Identity.Service\Entities\ApplicationRole.cs¨Language¢C#†¯ProviderMoniker‚¤NameÙ6Microsoft.VisualStudio.Copilot.DocumentContextProvider§Version£0.1¦Member¤file©CanReduceÃ©RequestIdÙ$4837dfab-0484-48ef-b8f5-6b09fe31ab95©Reference©#solution¥ValueÈædÙ‘Microsoft.VisualStudio.Copilot.DocumentContext, Microsoft.VisualStudio.Copilot, Version=0.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a…§ContentÙi
+using System;
+using AspNetCore.Identity.MongoDbCore.Models;
+using MongoDbGenericRepository.Attributes;¯OriginalContentÀªSelections¨FilePathÙ«D:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservices-based-game\projects\Play.Identity\src\Play.Identity.Service\Entities\ApplicationUser.cs¨Language¢C#†¯ProviderMoniker‚¤NameÙ6Microsoft.VisualStudio.Copilot.DocumentContextProvider§Version£0.1¦Member¤file©CanReduceÃ©RequestIdÙ$4837dfab-0484-48ef-b8f5-6b09fe31ab95©Reference©#solution¥ValueÈŞdÙ‘Microsoft.VisualStudio.Copilot.DocumentContext, Microsoft.VisualStudio.Copilot, Version=0.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a…§ContentÚL
+private ApplicationUser CreateUser()
+        {
+            try
+            {
+                return Activator.CreateInstance<ApplicationUser>();
+            }
+            catch
+            {
+                throw new InvalidOperationException($"Can't create an instance of '{nameof(ApplicationUser)}'. " +
+                    $"Ensure that '{nameof(ApplicationUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
+                    $"override the register page in /Areas/Identity/Pages/Account/Register.cshtml");
+            }
+        }¯OriginalContentÀªSelections¨FilePathÙ¿D:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservices-based-game\projects\Play.Identity\src\Play.Identity.Service\Areas\Identity\Pages\Account\Register.cshtml.cs¨Language¢C#†¯ProviderMoniker‚¤NameÙ6Microsoft.VisualStudio.Copilot.DocumentContextProvider§Version£0.1¦Member¤file©CanReduceÃ©RequestIdÙ$4837dfab-0484-48ef-b8f5-6b09fe31ab95©Reference©#solution¥ValueÈldÙ‘Microsoft.VisualStudio.Copilot.DocumentContext, Microsoft.VisualStudio.Copilot, Version=0.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a…§ContentÚÿ// This method gets called by the runtime. Use this method to add services to the container.
+public void ConfigureServices(IServiceCollection services)
+        {
+            BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
+            var serviceSettings = Configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
+            var mongoDbSettings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
+
+            services.AddDefaultIdentity<ApplicationUser>()
+                .AddRoles<ApplicationRole>()
+                .AddMongoDbStores<ApplicationUser, ApplicationRole, Guid>
+                (
+                    mongoDbSettings.ConnectionString,
+                    serviceSettings.ServiceName
+                );
+
+            services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Play.Identity.Service", Version = "v1" });
+            });
+        }¯OriginalContentÀªSelections¨FilePathÙšD:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservices-based-game\projects\Play.Identity\src\Play.Identity.Service\Startup.cs¨Language¢C#†¯ProviderMoniker‚¤NameÙ6Microsoft.VisualStudio.Copilot.DocumentContextProvider§Version£0.1¦Member¤file©CanReduceÃ©RequestIdÙ$4837dfab-0484-48ef-b8f5-6b09fe31ab95©Reference©#solution¥ValueÈvdÙ‘Microsoft.VisualStudio.Copilot.DocumentContext, Microsoft.VisualStudio.Copilot, Version=0.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a…§ContentÚ	// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Play.Identity.Service v1"));
+            }
+
+            app.UseHttpsRedirection();
+
+            app.UseStaticFiles();
+
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+                endpoints.MapRazorPages();
+            });
+        }¯OriginalContentÀªSelections¨FilePathÙšD:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservices-based-game\projects\Play.Identity\src\Play.Identity.Service\Startup.cs¨Language¢C#†¯ProviderMoniker‚¤NameÙ6Microsoft.VisualStudio.Copilot.DocumentContextProvider§Version£0.1¦Member¤file©CanReduceÃ©RequestIdÙ$4837dfab-0484-48ef-b8f5-6b09fe31ab95©Reference©#solution¥ValueÈÍdÙ‘Microsoft.VisualStudio.Copilot.DocumentContext, Microsoft.VisualStudio.Copilot, Version=0.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a…§ContentÚ;/// <summary>
+        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+        ///     directly from your code. This API may change or be removed in future releases.
+        /// </summary>
+
+[BindProperty]
+        public InputModel Input { get; set; }¯OriginalContentÀªSelections¨FilePathÙ¿D:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservices-based-game\projects\Play.Identity\src\Play.Identity.Service\Areas\Identity\Pages\Account\Register.cshtml.cs¨Language¢C#†¯ProviderMoniker‚¤NameÙ6Microsoft.VisualStudio.Copilot.DocumentContextProvider§Version£0.1¦Member¤file©CanReduceÃ©RequestIdÙ$4837dfab-0484-48ef-b8f5-6b09fe31ab95©Reference©#solution¥ValueÈádÙ‘Microsoft.VisualStudio.Copilot.DocumentContext, Microsoft.VisualStudio.Copilot, Version=0.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a…§ContentÚO
+private IUserEmailStore<ApplicationUser> GetEmailStore()
+        {
+            if (!_userManager.SupportsUserEmail)
+            {
+                throw new NotSupportedException("The default UI requires a user store with email support.");
+            }
+            return (IUserEmailStore<ApplicationUser>)_userStore;
+        }¯OriginalContentÀªSelections¨FilePathÙ¿D:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservices-based-game\projects\Play.Identity\src\Play.Identity.Service\Areas\Identity\Pages\Account\Register.cshtml.cs¨Language¢C#‘’“¥Value Ú’#solution  Severity	Code	Description	Project	File	Line	Suppression State	Details
+Error	NU1301	The local source 'D:\Materials\DotNet\DotNetMicroservices\Training\Game-With-Micros\Packages' doesn't exist.	Play.Identity.Service	D:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservices-based-game\projects\Play.Identity\src\Play.Identity.Service\Play.Identity.Service.csproj	1		À¨Response…§ContentÚvThe error message `NU1301` indicates that NuGet is unable to find the local package source directory specified in your project or NuGet configuration. In your case, it's looking for a directory at `D:\Materials\DotNet\DotNetMicroservices\Training\Game-With-Micros\Packages`, but it can't find it.
+
+To fix this issue, you have two options:
+
+1. If the directory exists but is located somewhere else, you need to update the path in your NuGet configuration. This could be in your `Play.Identity.Service.csproj` file, a `NuGet.config` file in your solution, or in your global NuGet configuration.
+
+2. If you don't need this local package source, you can remove it from your NuGet configuration.
+
+Here's how you can do it:
+
+**Option 1: Update the path**
+
+In your `Play.Identity.Service.csproj` file, look for a `PackageReference` element that references the local source and update the `Include` attribute to the correct path.
+
+```xml
+<ItemGroup>
+    <PackageReference Include="Correct.Path.To.Package" Version="1.0.0" />
+</ItemGroup>
+```
+
+**Option 2: Remove the local package source**
+
+In your `Play.Identity.Service.csproj` file, remove the `PackageReference` element that references the local source.
+
+```xml
+<ItemGroup>
+    <!-- Remove the line that references the local source -->
+</ItemGroup>
+```
+
+Remember to replace `"Correct.Path.To.Package"` with the correct path to your local package source.¤Type ¦Status¯FollowUpPrompts³CodeVulnerabilities…¨DateTime×ÿèÊpf\˜ªThreadNameÀ°CopilotSessionId‚¤GuidÙ$d1eb3a42-632e-475b-9784-241d7032e94b¨ClientId¢IdÙ4Microsoft.VisualStudio.Conversations.Chat.HelpWindow§Request§Request•Ù$1d5d71a7-7eed-4def-8bda-6a3625da71f8Ù$8b01d972-97d3-437d-b82e-643bd23b2d12‘†¯ProviderMoniker‚¤NameÙ6Microsoft.VisualStudio.Copilot.DocumentContextProvider§Version£0.1¦Member¤file©CanReduceÃ©RequestIdÙ$1d5d71a7-7eed-4def-8bda-6a3625da71f8©ReferenceÙ$#file:'Play.Identity.Service.csproj'¥ValueÈ„dÙ‘Microsoft.VisualStudio.Copilot.DocumentContext, Microsoft.VisualStudio.Copilot, Version=0.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a…§ContentÚ<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.Identity.MongoDbCore" Version="3.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+</Project>
+¯OriginalContentÀªSelections¨FilePathÙ¬D:\Materials\DotNet\DotNetMicroservices\Play-Economy-System\Repo\.Net-Microservices-based-game\projects\Play.Identity\src\Play.Identity.Service\Play.Identity.Service.csproj¨LanguageÀ‘’“¥Value ÙD#file:'Play.Identity.Service.csproj'  there is no such refernce hereÀ¨Response…§ContentÚèThe error you're encountering is not due to a package reference in your `Play.Identity.Service.csproj` file, but rather it's related to the configuration of NuGet package sources.
+
+NuGet package sources are repositories of packages, which can be either local directories, network shares, or HTTP URLs. NuGet checks these sources whenever you install or restore a package.
+
+The error message you're seeing indicates that NuGet is configured to use a local directory at `D:\Materials\DotNet\DotNetMicroservices\Training\Game-With-Micros\Packages` as a package source, but this directory doesn't exist.
+
+This configuration could be set in a few places:
+
+1. A `NuGet.config` file in your solution directory.
+2. A `NuGet.config` file in your user profile directory (usually `C:\Users\YourUsername\.nuget\NuGet\NuGet.config`).
+3. The global NuGet configuration, which can be accessed through Visual Studio's options dialog (Tools > Options > NuGet Package Manager > Package Sources).
+
+To resolve the issue, you need to either create the directory at the specified path, or remove the package source from your NuGet configuration. If you're not sure where this configuration is set, I would recommend checking the locations I mentioned in the order I listed them.¤Type ¦Status¯FollowUpPrompts’Ù.How can I create a local NuGet package source?Ù>How can I remove a package source from my NuGet configuration?³CodeVulnerabilities…¨DateTime×ÿOõ„àf\’ÈªThreadNameÀ°CopilotSessionId‚¤GuidÙ$d1eb3a42-632e-475b-9784-241d7032e94b¨ClientId¢IdÙ4Microsoft.VisualStudio.Conversations.Chat.HelpWindow§Request§Request•Ù$45ad041e-e35e-447c-baa0-14784d870d29Ù$de44ee2f-1308-4a9a-86fe-69949e18cee7‘’“¥Value ²issue still there À¨Response…§ContentÚñThe error you're encountering is not directly related to the `Play.Identity.Service.csproj` file or the `<Project Sdk="Microsoft.NET.Sdk.Web">` line in it. The error is coming from NuGet, the package manager for .NET, which is trying to access a local package source that doesn't exist.
+
+The local package source is specified in a NuGet configuration file, not in the project file. The NuGet configuration file can be located in several places:
+
+1. The solution directory.
+2. The user profile directory (usually `C:\Users\YourUsername\.nuget\NuGet\NuGet.config`).
+3. The global NuGet configuration, which can be accessed through Visual Studio's options dialog (Tools > Options > NuGet Package Manager > Package Sources).
+
+To resolve the issue, you need to either create the directory at the specified path, or remove the package source from your NuGet configuration. If you're not sure where this configuration is set, I would recommend checking the locations I mentioned in the order I listed them.
+
+If you're still having trouble, could you please provide more information about your environment? Specifically, it would be helpful to know:
+
+- The version of Visual Studio you're using.
+- The version of NuGet you're using.
+- Whether you're able to build other .NET projects without this error.
+- Whether you have a `NuGet.config` file in your solution directory or user profile directory, and if so, what it contains.
+- Whether you have any package sources configured in the global NuGet configuration in Visual Studio.¤Type ¦Status¯FollowUpPrompts³CodeVulnerabilities

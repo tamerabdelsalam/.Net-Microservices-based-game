@@ -1,0 +1,102 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Materials\\DotNet\\DotNetMicroservices\\Play-Economy-System\\Repo\\.Net-Microservices-based-game\\projects\\Play.Identity\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3D70C737-0955-4AB2-BB3F-6103DA826A96}|src\\Play.Identity.Service\\Play.Identity.Service.csproj|d:\\materials\\dotnet\\dotnetmicroservices\\play-economy-system\\repo\\.net-microservices-based-game\\projects\\play.identity\\src\\play.identity.service\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D70C737-0955-4AB2-BB3F-6103DA826A96}|src\\Play.Identity.Service\\Play.Identity.Service.csproj|solutionrelative:src\\play.identity.service\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D70C737-0955-4AB2-BB3F-6103DA826A96}|src\\Play.Identity.Service\\Play.Identity.Service.csproj|d:\\materials\\dotnet\\dotnetmicroservices\\play-economy-system\\repo\\.net-microservices-based-game\\projects\\play.identity\\src\\play.identity.service\\play.identity.service.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{3D70C737-0955-4AB2-BB3F-6103DA826A96}|src\\Play.Identity.Service\\Play.Identity.Service.csproj|solutionrelative:src\\play.identity.service\\play.identity.service.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 12,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:57074359:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:7:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:10:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:13:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:6:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:9:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "D:\\Materials\\DotNet\\DotNetMicroservices\\Play-Economy-System\\Repo\\.Net-Microservices-based-game\\projects\\Play.Identity\\src\\Play.Identity.Service\\Startup.cs",
+              "RelativeDocumentMoniker": "src\\Play.Identity.Service\\Startup.cs",
+              "ToolTip": "D:\\Materials\\DotNet\\DotNetMicroservices\\Play-Economy-System\\Repo\\.Net-Microservices-based-game\\projects\\Play.Identity\\src\\Play.Identity.Service\\Startup.cs",
+              "RelativeToolTip": "src\\Play.Identity.Service\\Startup.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T15:47:52.721Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Play.Identity.Service",
+              "DocumentMoniker": "D:\\Materials\\DotNet\\DotNetMicroservices\\Play-Economy-System\\Repo\\.Net-Microservices-based-game\\projects\\Play.Identity\\src\\Play.Identity.Service\\Play.Identity.Service.csproj",
+              "RelativeDocumentMoniker": "src\\Play.Identity.Service\\Play.Identity.Service.csproj",
+              "ToolTip": "D:\\Materials\\DotNet\\DotNetMicroservices\\Play-Economy-System\\Repo\\.Net-Microservices-based-game\\projects\\Play.Identity\\src\\Play.Identity.Service\\Play.Identity.Service.csproj",
+              "RelativeToolTip": "src\\Play.Identity.Service\\Play.Identity.Service.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-06-02T15:26:35.345Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
