@@ -1,4 +1,3 @@
-using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -9,7 +8,6 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using Play.Common.Settings;
-using Play.Identity.Service.Entities;
 
 namespace Play.Identity.Service
 {
@@ -27,15 +25,7 @@ namespace Play.Identity.Service
         {
             BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
             var serviceSettings = Configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
-            var mongoDbSettings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
-
-            services.AddDefaultIdentity<ApplicationUser>()
-                .AddRoles<ApplicationRole>()
-                .AddMongoDbStores<ApplicationUser, ApplicationRole, Guid>
-                (
-                    mongoDbSettings.ConnectionString,
-                    serviceSettings.ServiceName
-                );
+            var mongoDbSettings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();         
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

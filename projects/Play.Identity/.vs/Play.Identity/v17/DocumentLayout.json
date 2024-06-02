@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{3D70C737-0955-4AB2-BB3F-6103DA826A96}|src\\Play.Identity.Service\\Play.Identity.Service.csproj|solutionrelative:src\\play.identity.service\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3D70C737-0955-4AB2-BB3F-6103DA826A96}|src\\Play.Identity.Service\\Play.Identity.Service.csproj|d:\\materials\\dotnet\\dotnetmicroservices\\play-economy-system\\repo\\.net-microservices-based-game\\projects\\play.identity\\src\\play.identity.service\\play.identity.service.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{3D70C737-0955-4AB2-BB3F-6103DA826A96}|src\\Play.Identity.Service\\Play.Identity.Service.csproj|D:\\Materials\\DotNet\\DotNetMicroservices\\Play-Economy-System\\Repo\\.Net-Microservices-based-game\\projects\\Play.Identity\\src\\play.identity.service\\play.identity.service.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{3D70C737-0955-4AB2-BB3F-6103DA826A96}|src\\Play.Identity.Service\\Play.Identity.Service.csproj|solutionrelative:src\\play.identity.service\\play.identity.service.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
@@ -76,7 +76,7 @@
               "RelativeDocumentMoniker": "src\\Play.Identity.Service\\Startup.cs",
               "ToolTip": "D:\\Materials\\DotNet\\DotNetMicroservices\\Play-Economy-System\\Repo\\.Net-Microservices-based-game\\projects\\Play.Identity\\src\\Play.Identity.Service\\Startup.cs",
               "RelativeToolTip": "src\\Play.Identity.Service\\Startup.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAApAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-02T15:47:52.721Z",
               "EditorCaption": ""
@@ -91,8 +91,7 @@
               "RelativeToolTip": "src\\Play.Identity.Service\\Play.Identity.Service.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-06-02T15:26:35.345Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-02T15:26:35.345Z"
             }
           ]
         }
