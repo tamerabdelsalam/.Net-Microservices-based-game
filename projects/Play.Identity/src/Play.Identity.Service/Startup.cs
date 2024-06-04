@@ -68,8 +68,6 @@ namespace Play.Identity.Service
 
             app.UseHttpsRedirection();
 
-            app.UseStaticFiles();
-
             app.UseRouting();
 
             app.UseAuthorization();
