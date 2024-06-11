@@ -34,3 +34,4 @@ Thumbs.db
  Ignore all .cache files in all folders
 **/.cache/
 
+projects/Play.Identity/src/Play.Identity.Service/keys/is-signing-key.json

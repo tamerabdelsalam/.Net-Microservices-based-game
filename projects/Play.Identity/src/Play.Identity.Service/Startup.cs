@@ -16,6 +16,7 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using Play.Common.Settings;
 using Play.Identity.Service.Entities;
+using Play.Identity.Service.Settings;
 
 namespace Play.Identity.Service
 {
@@ -41,6 +42,8 @@ namespace Play.Identity.Service
                 .GetSection(nameof(MongoDbSettings))
                 .Get<MongoDbSettings>();
 
+            var identityServiceSettings = new IdentityServiceSettings();
+
             services.AddDefaultIdentity<ApplicationUser>()
                     .AddRoles<ApplicationRole>()
                     .AddMongoDbStores<ApplicationUser, ApplicationRole, Guid>
@@ -48,6 +51,12 @@ namespace Play.Identity.Service
                         mongoDbSettings.ConnectionString,
                         serviceSettings.ServiceName
                     );
+
+            services.AddIdentityServer()
+                .AddAspNetIdentity<ApplicationUser>()
+                .AddInMemoryApiScopes(identityServiceSettings.ApiScopes)
+                .AddInMemoryClients(identityServiceSettings.Clients)
+                .AddInMemoryIdentityResources(identityServiceSettings.IdentityResources);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -69,6 +78,8 @@ namespace Play.Identity.Service
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseIdentityServer();
 
             app.UseAuthorization();
 
