@@ -42,7 +42,9 @@ namespace Play.Identity.Service
                 .GetSection(nameof(MongoDbSettings))
                 .Get<MongoDbSettings>();
 
-            var identityServiceSettings = new IdentityServiceSettings();
+            var identityServiceSettings = Configuration
+                .GetSection(nameof(IdentityServiceSettings))
+                .Get<IdentityServiceSettings>();
 
             services.AddDefaultIdentity<ApplicationUser>()
                     .AddRoles<ApplicationRole>()
@@ -52,7 +54,12 @@ namespace Play.Identity.Service
                         serviceSettings.ServiceName
                     );
 
-            services.AddIdentityServer()
+            services.AddIdentityServer(options =>
+                {
+                    options.Events.RaiseErrorEvents = true;
+                    options.Events.RaiseFailureEvents = true;
+                    options.Events.RaiseSuccessEvents = true;
+                })
                 .AddAspNetIdentity<ApplicationUser>()
                 .AddInMemoryApiScopes(identityServiceSettings.ApiScopes)
                 .AddInMemoryClients(identityServiceSettings.Clients)
