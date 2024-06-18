@@ -5,10 +5,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Play.Catalog.Service.Entities;
+using Play.Common.MassTransit;
 using Play.Common.MongoDB;
 using Play.Common.Settings;
-using Play.Common.MassTransit;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Play.Common.Identity;
 
 namespace Play.Catalog.Service
 {
@@ -28,17 +28,12 @@ namespace Play.Catalog.Service
         public void ConfigureServices(IServiceCollection services)
         {
             serviceSettings = Configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
+             var rabbitMQSettings = Configuration.GetSection(nameof(RabbitMQSettings)).Get<RabbitMQSettings>();
 
             services.AddMongo()
                     .AddMongoRepository<Item>("items")
-                    .AddMassTransitWithRabbitMQ();
-
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddJwtBearer(options =>
-            {
-                options.Authority = "https://localhost:5003";
-                options.Audience = serviceSettings.ServiceName;
-            });
+                    .AddMassTransitWithRabbitMq(rabbitMQSettings)
+                    .AddJwtAuthentication();         
 
             services.AddControllers((options) => options.SuppressAsyncSuffixInActionNames = false);
             services.AddSwaggerGen(c =>

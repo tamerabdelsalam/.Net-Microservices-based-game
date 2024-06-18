@@ -7,10 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Play.Catalog.Service.Dtos;
 using Play.Catalog.Service.Entities;
 using Play.Catalog.Service.Extensions;
-using Play.Common.Interfaces;
-using Play.Common.MassTransit;
 using Play.Catalog.Contracts;
 using Microsoft.AspNetCore.Authorization;
+using Play.Common;
 
 namespace Play.Catalog.Service.Controllers;
 
