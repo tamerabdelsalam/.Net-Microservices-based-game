@@ -28,14 +28,15 @@ namespace Play.Catalog.Service
         public void ConfigureServices(IServiceCollection services)
         {
             serviceSettings = Configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
-             var rabbitMQSettings = Configuration.GetSection(nameof(RabbitMQSettings)).Get<RabbitMQSettings>();
+            var rabbitMQSettings = Configuration.GetSection(nameof(RabbitMQSettings)).Get<RabbitMQSettings>();
 
             services.AddMongo()
                     .AddMongoRepository<Item>("items")
                     .AddMassTransitWithRabbitMq(rabbitMQSettings)
-                    .AddJwtAuthentication();         
+                    .AddJwtAuthentication();
 
             services.AddControllers((options) => options.SuppressAsyncSuffixInActionNames = false);
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Play.Catalog.Service", Version = "v1" });

@@ -3,14 +3,16 @@ using System.Net.Http;
 using DnsClient.Internal;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Play.Common.Identity;
 using Play.Common.MassTransit;
 using Play.Common.MongoDB;
+using Play.Common.Settings;
+using Play.Inventory.Service.Entities;
 using Polly;
 using Polly.Timeout;
 
@@ -30,14 +32,19 @@ namespace Play.Inventory.Service
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            var rabbitMqSettings= Configuration.GetSection(nameof(RabbitMQSettings)).Get<RabbitMQSettings>();
+
             services.AddMongo()
-                    .AddMongoRepository<Entities.InventoryItem>("inventoryItems")
-                    .AddMongoRepository<Entities.CatalogItem>("catalogItems")
-                    .AddMassTransitWithRabbitMQ();
+                    .AddMongoRepository<InventoryItem>("inventoryItems")
+                    .AddMongoRepository<CatalogItem>("catalogItems")
+                    .AddMassTransitWithRabbitMq(rabbitMqSettings)
+                    .AddJwtAuthentication();
 
             AddCatalogClient(services);
 
             services.AddControllers();
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Play.Inventory.Service", Version = "v1" });
@@ -64,6 +71,8 @@ namespace Play.Inventory.Service
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

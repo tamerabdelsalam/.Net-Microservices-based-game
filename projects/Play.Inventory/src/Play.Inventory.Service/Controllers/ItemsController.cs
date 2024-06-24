@@ -1,5 +1,4 @@
 using System;
-using Play.Common.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Play.Inventory.Service.Entities;
 using System.Threading.Tasks;
@@ -7,11 +6,15 @@ using MassTransit.Initializers;
 using System.Collections.Generic;
 using System.Linq;
 using MongoDB.Driver;
+using Microsoft.AspNetCore.Authorization;
+using Play.Common;
 
 namespace Play.Inventory.Service.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+
+[Authorize]
 public class ItemsController : ControllerBase
 {
     private readonly IRepository<InventoryItem> _inventoryItemsRepository;

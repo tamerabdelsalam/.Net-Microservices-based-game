@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using MassTransit;
 using Play.Catalog.Contracts;
-using Play.Common.Interfaces;
+using Play.Common;
 using Play.Inventory.Service.Entities;
 
 namespace Play.Inventory.Service.Consumers;
