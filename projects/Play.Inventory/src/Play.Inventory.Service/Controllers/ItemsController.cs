@@ -13,7 +13,6 @@ namespace Play.Inventory.Service.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-
 [Authorize]
 public class ItemsController : ControllerBase
 {
