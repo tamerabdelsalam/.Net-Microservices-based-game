@@ -1,16 +1,21 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Play.Identity.Service.Entities;
+using static Duende.IdentityServer.IdentityServerConstants;
 using static Play.Identity.Service.Dtos;
 
 namespace Play.Identity.Service.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+[Authorize
+(// Only allow access to the API from the local machine (that identity server is running on)
+Policy = LocalApi.PolicyName
+)]
 public class UsersController : ControllerBase
 {
     private readonly UserManager<ApplicationUser> userManager;
