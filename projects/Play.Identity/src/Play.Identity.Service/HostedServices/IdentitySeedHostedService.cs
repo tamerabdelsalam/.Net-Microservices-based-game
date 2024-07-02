@@ -34,11 +34,13 @@ public class IdentitySeedHostedService : IHostedService
 
         if (adminUser == null)
         {
-            await userManager.CreateAsync(new ApplicationUser
+            adminUser = new ApplicationUser
             {
                 Email = _identitySettings.AdminUserEmail,
                 UserName = _identitySettings.AdminUserEmail
-            }, _identitySettings.AdminUserPassword);
+            };
+
+            await userManager.CreateAsync(adminUser, _identitySettings.AdminUserPassword);
 
             await userManager.AddToRoleAsync(adminUser, Roles.Admin);
         }

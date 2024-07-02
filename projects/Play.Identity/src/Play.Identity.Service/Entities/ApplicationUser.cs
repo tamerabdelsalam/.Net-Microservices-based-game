@@ -6,10 +6,6 @@ namespace Play.Identity.Service.Entities;
 
 [CollectionName("Users")]
 public class ApplicationUser : MongoIdentityUser<Guid>
-{
-    public ApplicationUser()
-    {
-        Gil = 100;
-    }
+{   
     public decimal Gil { get; set; }
 }
