@@ -37,7 +37,8 @@ public class IdentitySeedHostedService : IHostedService
             adminUser = new ApplicationUser
             {
                 Email = _identitySettings.AdminUserEmail,
-                UserName = _identitySettings.AdminUserEmail
+                UserName = _identitySettings.AdminUserEmail,
+                Gil = 0
             };
 
             await userManager.CreateAsync(adminUser, _identitySettings.AdminUserPassword);
